@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sift — Privacy policy</title>
+<meta name="description" content="How Sift accesses, uses, stores and protects your email, including Google user data.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="brand" href="./">Sift</a>
+  <nav>
+    <a href="./">Home</a>
+    <a href="privacy.html" aria-current="page">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Privacy policy</h1>
+  <p class="meta">Effective November 16, 2026</p>
+  <p class="lede">Sift exists to read your mail so that you can read less of it. This policy explains exactly what it touches, where that data lives, and who can see it.</p>
+
+  <h2>1. Who this applies to</h2>
+  <p>Sift is self-hosted software. There is no central Sift service and no Sift account. The person who installs and runs a Sift server (the <strong>operator</strong>) is also the person whose mail it processes. Sift is developed by Erik Peterson, who operates his own installation under this same policy.</p>
+
+  <h2>2. Data Sift accesses</h2>
+  <p>Sift connects to the email accounts you add. For each account it accesses:</p>
+  <ul>
+    <li><strong>Messages</strong> in the mailbox folders it syncs (for example Inbox and Sent): headers, sender and recipient addresses, subject, body text and HTML, and attachment metadata.</li>
+    <li><strong>Mailbox state</strong> such as read/unread, flags and folder membership.</li>
+    <li><strong>Credentials</strong> needed to sign in: an OAuth token for Google accounts, or an IMAP password for other providers.</li>
+  </ul>
+
+  <h3 id="google">Google user data</h3>
+  <p>For Gmail and Google Workspace accounts, Sift requests the Gmail IMAP/SMTP scope, <code>https://mail.google.com/</code>, through Google OAuth. Sift uses this scope to:</p>
+  <ul>
+    <li>read messages from your mailbox so they can be shown and triaged;</li>
+    <li>change message state when you take an action: archive, mark read or unread, flag, move between folders, delete, and mark as spam;</li>
+    <li>send messages that you compose, through Gmail SMTP, and mirror them into your Sent folder.</li>
+  </ul>
+  <p>Sift does not request access to Google Contacts, Calendar, Drive, or any other Google service, and does not read mail from folders it has not been configured to sync.</p>
+
+  <h2>3. How the data is used</h2>
+  <ul>
+    <li><strong>Showing you your mail</strong> on the operator's own devices.</li>
+    <li><strong>Triage.</strong> Each message is classified as needing attention, worth a glance, or noise. Classification uses rules you create, patterns Sift learns from your own actions, and a small language model that runs on the operator's own machine or inside a cloud project the operator owns and controls. Message content is never sent to a third-party AI provider.</li>
+    <li><strong>Unsubscribe detection.</strong> Sift finds unsubscribe links and headers in newsletters and acts on them only when you explicitly ask.</li>
+    <li><strong>Sending replies</strong> you write.</li>
+  </ul>
+  <p>Sift does not use your mail for advertising, profiling, market research, or to train models shared with anyone else. No human other than the operator reads the data.</p>
+
+  <h2>4. Where the data lives</h2>
+  <ul>
+    <li>Synced messages are cached in a local database on the server the operator runs Sift on.</li>
+    <li>OAuth tokens and passwords are stored in the operating system keychain, or in an encrypted file on servers without one.</li>
+    <li>Connections to mail providers use TLS. The Mac and iPhone clients reach the server over an encrypted private network that the operator controls.</li>
+  </ul>
+  <p>Because there is no Sift cloud, no data is transferred to the developer or to any other party.</p>
+
+  <h2>5. Sharing</h2>
+  <p>Sift does not sell, rent, or share your data with anyone. Data moves only between your mail provider, your own server, and your own devices. The only outbound messages are the emails you choose to send and the unsubscribe requests you choose to trigger.</p>
+
+  <h2>6. Retention and deletion</h2>
+  <p>Cached mail is kept for as long as the account is connected. Removing an account from Sift deletes all cached messages and triage data for that account and, for Google accounts, revokes Sift's OAuth grant with Google. You can also revoke Sift's access at any time from your <a href="https://myaccount.google.com/permissions">Google Account permissions page</a>; Sift will then be unable to sync and the operator can delete the local cache by removing the account.</p>
+
+  <h2>7. Limited Use disclosure</h2>
+  <p>Sift's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+
+  <h2>8. Children</h2>
+  <p>Sift is not directed at children under 13 and does not knowingly process their data.</p>
+
+  <h2>9. Changes</h2>
+  <p>If this policy changes, the new version will be published at this address with an updated effective date.</p>
+
+  <h2>10. Contact</h2>
+  <p>Questions about this policy can be raised at <a href="https://github.com/erikcpeterson/sift-site/issues">github.com/erikcpeterson/sift-site/issues</a>.</p>
+</main>
+
+<footer>
+  <p>Sift · <a href="./">Home</a> · <a href="terms.html">Terms of service</a></p>
+</footer>
+</body>
+</html>
